@@ -8,3 +8,5 @@
 //*color red for past to-do stuff
 
 //*green for upcoming.
+
+$(#currentDay).moment().format("MMM DO YY")
