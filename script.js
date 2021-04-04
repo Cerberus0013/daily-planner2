@@ -15,9 +15,12 @@ $('#currentDay').append("Today is " + today.format('dddd Do MMMM, YYYY'))
 
 
 $(".editable").on("click", function () {
+   
   var text = $(this).text().trim()
 
-  var textInput = $("<teaxtarea>").val(text);
+  var textInput = $("<textarea>").val(text);
+
+     console.log(textInput);
 
   $(this).replaceWith(textInput);
 
@@ -25,17 +28,17 @@ $(".editable").on("click", function () {
 });
 
 $(".editable").on("blur", "textarea", function () {
-var text = $(this).val().trim();
+  var text = $(this).val().trim();
 
 
-var status = $(this).closest(".list-group").attr("id").replace("list-", "");
+var status = $(this).closest(".editable").attr("id").replace("list-", "");
 
 
-var index = $(this).closest(".list-group-item").index();
+var index = $(this).closest(".editable").index();
 
 });
 
 
 
-$('.saveble')
+$('.saveable')
 

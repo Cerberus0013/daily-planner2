@@ -75,3 +75,8 @@ textarea{
   border: solid black ;
   background-color: #d3d3d3;
 }
+
+.saveable {
+  background-color: blue;
+  
+}
