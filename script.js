@@ -14,31 +14,64 @@ $('#currentDay').append("Today is " + today.format('dddd Do MMMM, YYYY'))
 
 
 
-$(".editable").on("click", function () {
+$(".editable").on("dblclick", function () {
    
   var text = $(this).text().trim()
 
   var textInput = $("<textarea>").val(text);
 
-     console.log(textInput);
+console.log(textInput);
 
-  $(this).replaceWith(textInput);
+ // $(this).replaceWith(textInput);
 
-  textInput.trigger("focus");
+  //textInput.trigger("focus");
 });
 
-$(".editable").on("blur", "textarea", function () {
-  var text = $(this).val().trim();
+$(".saveBtn").on("click", function () {
+  var text = $(this).text().trim();
+ 
+console.log(text)
 
+var edited = $("<p>").addClass(".list-group").text(text);
 
-var status = $(this).closest(".editable").attr("id").replace("list-", "");
+$(this).replaceWith(edited);
 
-
-var index = $(this).closest(".editable").index();
 
 });
 
 
+ function byTheHour() {
+        //get current time, onlt by hour
+        var currentHour = moment().hour();
 
-$('.saveable')
+        // loop over time block and ge the id attribut by its number and compare to current hour
+        $(".timeBlock").each(function () {
+            var hourBlock = parseInt($(this).attr("id"));
+
+            console.log(hourBlock, currentHour)
+
+            if (hourBlock < currentHour) {
+                $(this).addClass("past");
+            }else if(hourBlock === currentTime){ 
+               $(this).addClass("present")
+               $(this).removeClass("past") 
+
+            } else{
+                $(this).remove
+
+            }
+            
+        })
+    }
+   byTheHour();
+
+
+
+
+
+
+
+
+
+
 
