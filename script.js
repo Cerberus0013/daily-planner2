@@ -9,6 +9,10 @@
 
 //*green for upcoming.
 
+var toDoList ={}
+
+
+
 let today = moment();
 $('#currentDay').append("Today is " + today.format('dddd Do MMMM, YYYY'))
 
@@ -45,7 +49,7 @@ $(".editable").on("blur", "textarea", function () {
         $(".editable").each(function () {
             var hourBlock = parseInt($(this).attr("id"));
 
-            console.log(hourBlock, currentHour)
+           // console.log(hourBlock, currentHour)
 
             if (hourBlock >  currentHour) {
                 $(this).addClass("future");
@@ -62,7 +66,18 @@ $(".editable").on("blur", "textarea", function () {
    byTheHour();
 
 
+$(".saveBtn").on("click", function(){
 
+      var index = $(".saveBtn").index(this);
+
+      //console.log(index)
+ 
+      toDoList[index] = $('.hour').text();
+
+     
+
+      localStorage.setItem("toDoList", JSON.stringify(toDoList));
+  });
 
 
 
