@@ -14,30 +14,27 @@ $('#currentDay').append("Today is " + today.format('dddd Do MMMM, YYYY'))
 
 
 
-$(".editable").on("dblclick", function () {
+$(".editable").on("dblclick", 'p', function () {
    
   var text = $(this).text().trim()
 
-  var textInput = $("<textarea>").val(text);
+  var textInput = $("<textarea>").addClass("form-control").val(text);
 
-console.log(textInput);
-
- // $(this).replaceWith(textInput);
-
+$(this).replaceWith(textInput);
+textInput.trigger("focus");
   //textInput.trigger("focus");
 });
 
-$(".saveBtn").on("click", function () {
-  var text = $(this).text().trim();
- 
-console.log(text)
+$(".editable").on("blur", "textarea", function () {
+  var text = $(this).val().trim();
+  // console.log(text)
 
-var edited = $("<p>").addClass(".list-group").text(text);
+  //recreate p element
+  var editedTask = $("<p>").addClass("hour").text(text);
 
-$(this).replaceWith(edited);
-
-
-});
+  // replace textarea with p element
+  $(this).replaceWith(editedTask);
+});    
 
 
  function byTheHour() {
@@ -45,7 +42,7 @@ $(this).replaceWith(edited);
         var currentHour = moment().hour();
 
         // loop over time block and ge the id attribut by its number and compare to current hour
-        $(".timeBlock").each(function () {
+        $(".editable").each(function () {
             var hourBlock = parseInt($(this).attr("id"));
 
             console.log(hourBlock, currentHour)

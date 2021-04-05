@@ -22,9 +22,6 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
-  white-space: pre-wrap;
-}
 
 .time-block{
   text-align: center;
@@ -37,11 +34,6 @@ textarea{
   border-top: 1px solid white;;
 }
 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-}
 
 .past {
   background-color: #d44242;
@@ -65,6 +57,8 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  height: 50px;
+  position: Center;
 }
 
 .saveBtn::hover {
@@ -72,6 +66,11 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
+.hour {
+  background-color: #c5c1c1;
+  color: #000000;
+  border-top: 1px dashed #000000;
+}
 
 
 
