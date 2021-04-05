@@ -11,6 +11,11 @@
 
 var toDoList ={}
 
+var loadToDoList= function(){
+
+storedToDoList = JSON.parse(localStorage.getItem("toDoList"));
+
+}
 
 
 let today = moment();
