@@ -50,17 +50,16 @@ $(this).replaceWith(edited);
 
             console.log(hourBlock, currentHour)
 
-            if (hourBlock < currentHour) {
-                $(this).addClass("past");
-            }else if(hourBlock === currentTime){ 
+            if (hourBlock >  currentHour) {
+                $(this).addClass("future");
+            }else if(hourBlock === currentHour){ 
                $(this).addClass("present")
-               $(this).removeClass("past") 
-
-            } else{
-                $(this).remove
-
+               $(this).removeClass("future") 
+            } else{//event is in the past
+                $(this).removeClass("present")
+                $(this).addClass("past")
             }
-            
+      
         })
     }
    byTheHour();
